@@ -47,6 +47,7 @@ namespace StockTracking
                 gridProduct.Columns[3].HeaderText = "Precio";
                 gridProduct.Columns[4].Visible = false;
                 gridProduct.Columns[5].Visible = false;
+                gridProduct.Columns[6].Visible = false;
 
                 //GRID CUSTOMER
                 gridCustomer.DataSource = dto.Customers;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAddStock = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -37,6 +38,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnAddStock);
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 323);
@@ -44,16 +46,27 @@
             this.panel1.Size = new System.Drawing.Size(675, 70);
             this.panel1.TabIndex = 0;
             // 
+            // btnAddStock
+            // 
+            this.btnAddStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddStock.Location = new System.Drawing.Point(340, 13);
+            this.btnAddStock.Name = "btnAddStock";
+            this.btnAddStock.Size = new System.Drawing.Size(132, 44);
+            this.btnAddStock.TabIndex = 16;
+            this.btnAddStock.Text = "Agregar stock";
+            this.btnAddStock.UseVisualStyleBackColor = true;
+            this.btnAddStock.Click += new System.EventHandler(this.btnAddStock_Click);
+            // 
             // btnOk
             // 
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(279, 13);
+            this.btnOk.Location = new System.Drawing.Point(218, 13);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(116, 44);
-            this.btnOk.TabIndex = 13;
+            this.btnOk.TabIndex = 15;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click_1);
             // 
             // dataGridView1
             // 
@@ -65,6 +78,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(675, 323);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // FrmStockAlert
             // 
@@ -86,7 +100,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAddStock;
+        private System.Windows.Forms.Button btnOk;
     }
 }

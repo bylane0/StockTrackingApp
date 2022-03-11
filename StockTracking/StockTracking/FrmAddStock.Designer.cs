@@ -41,6 +41,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.labelAlert = new System.Windows.Forms.Label();
+            this.txtAlertStock = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -177,11 +179,32 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // labelAlert
+            // 
+            this.labelAlert.AutoSize = true;
+            this.labelAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAlert.Location = new System.Drawing.Point(13, 126);
+            this.labelAlert.Name = "labelAlert";
+            this.labelAlert.Size = new System.Drawing.Size(94, 17);
+            this.labelAlert.TabIndex = 25;
+            this.labelAlert.Text = "Actualmente: ";
+            // 
+            // txtAlertStock
+            // 
+            this.txtAlertStock.AutoSize = true;
+            this.txtAlertStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlertStock.Location = new System.Drawing.Point(103, 126);
+            this.txtAlertStock.Name = "txtAlertStock";
+            this.txtAlertStock.Size = new System.Drawing.Size(0, 17);
+            this.txtAlertStock.TabIndex = 26;
+            // 
             // FrmAddStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 394);
+            this.Controls.Add(this.txtAlertStock);
+            this.Controls.Add(this.labelAlert);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtStock);
@@ -219,5 +242,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label labelAlert;
+        private System.Windows.Forms.Label txtAlertStock;
     }
 }
