@@ -65,14 +65,90 @@ namespace StockTracking
             this.Visible = true;
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+  
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+           
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            if(UserStatic.PermissionName.Equals("Vendedor"))
+            {
+                btnAddStock.Hide();
+                btnCategory.Hide();
+                btnProducts.Hide();
+                btnCustomers.Hide();
+                btnDeleted.Hide();
+                btnAddUser.Hide();
+      
+                btnSales.Location = new Point(12, 12);
+                btnSales.Size = new Size(405, 238);
+                btnExit.Location = new Point(12, 256);
+                btnExit.Size = new Size(405, 116);
+            }
+            else if (UserStatic.PermissionName.Equals("Reponedor"))
+            {
+                btnProducts.Size = new Size(408, 116);
+                btnProducts.Location = new Point(12, 12);
+                btnCategory.Location = new Point(81, 134);
+                btnAddStock.Location = new Point(218, 134);
+                btnSales.Hide();
+                btnCustomers.Hide();
+                btnDeleted.Hide();
+                btnAddUser.Hide();
+                btnExit.Location = new Point(12, 256);
+                btnExit.Size = new Size(405, 116);
+            }
+            else if(UserStatic.PermissionName.Equals("Comercial"))
+            {
+                btnProducts.Size = new Size(408, 116);
+                btnProducts.Location = new Point(12, 12);
+                btnCustomers.Location = new Point(12, 134);
+                btnCustomers.Size = new Size(408, 116);
+                btnExit.Location = new Point(149, 256);
+                btnSales.Hide();
+                btnCategory.Hide();
+                btnDeleted.Hide();
+                btnAddUser.Hide();
+                btnAddStock.Hide();
+                btnExit.Location = new Point(12, 256);
+                btnExit.Size = new Size(408, 116);
+            }
+            else if(UserStatic.PermissionName.Equals("RR HH"))
+            {
+                btnAddUser.Location = new Point(12, 12);
+                btnAddUser.Size = new Size(405, 238);
+                btnExit.Location = new Point(12, 256);
+                btnExit.Size = new Size(408, 116);
+                btnAddStock.Hide();
+                btnCategory.Hide();
+                btnProducts.Hide();
+                btnCustomers.Hide();
+                btnDeleted.Hide();
+              
+                btnSales.Hide();
+
+            }
+            
+          
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            FrmUserList frm = new FrmUserList();
+            this.Hide();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            FrmLogin frm = new FrmLogin();
+            this.Hide();
+            frm.ShowDialog();
         }
     }
 }

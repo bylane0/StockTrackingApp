@@ -7,21 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StockTracking.DAL
+namespace StockTracking
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SALE
+    public partial class PERMISSION
     {
         public int ID { get; set; }
-        public int ProductID { get; set; }
-        public int CustomerID { get; set; }
-        public int CategoryID { get; set; }
-        public int ProductSalesAmount { get; set; }
-        public int ProductSalesPrice { get; set; }
-        public System.DateTime SalesDate { get; set; }
-        public bool isDeleted { get; set; }
-        public Nullable<System.DateTime> DeletedDate { get; set; }
+        public string PermissionName { get; set; }
     }
 }

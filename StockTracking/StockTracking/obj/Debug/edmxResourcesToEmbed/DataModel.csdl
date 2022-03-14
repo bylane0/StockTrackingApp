@@ -18,6 +18,13 @@
     <Property Name="isDeleted" Type="Boolean" Nullable="false" />
     <Property Name="DeletedDate" Type="DateTime" Precision="0" />
   </EntityType>
+  <EntityType Name="PERMISSION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PermissionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityType Name="PRODUCT">
     <Key>
       <PropertyRef Name="ID" />
@@ -53,19 +60,12 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PermissionType" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="PERMISSION">
-    <Key>
-      <PropertyRef Name="PermissionName" />
-    </Key>
-    <Property Name="ID" Type="Int32" />
-    <Property Name="PermissionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
-  <EntityContainer Name="StockTrackingEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="StockTrackingEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
     <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+    <EntitySet Name="PERMISSIONs" EntityType="Self.PERMISSION" />
     <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
     <EntitySet Name="SALES" EntityType="Self.SALE" />
     <EntitySet Name="USERs" EntityType="Self.USER" />
-    <EntitySet Name="PERMISSIONs" EntityType="Self.PERMISSION" />
   </EntityContainer>
 </Schema>

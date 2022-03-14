@@ -23,6 +23,13 @@
           <Property Name="isDeleted" Type="bit" Nullable="false" />
           <Property Name="DeletedDate" Type="date" />
         </EntityType>
+        <EntityType Name="PERMISSION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PermissionName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="PRODUCT">
           <Key>
             <PropertyRef Name="ID" />
@@ -49,11 +56,22 @@
           <Property Name="isDeleted" Type="bit" Nullable="false" />
           <Property Name="DeletedDate" Type="date" />
         </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PermissionType" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="StockTrackingModelStoreContainer">
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERMISSION" EntityType="Self.PERMISSION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SALES" EntityType="Self.SALES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -77,6 +95,13 @@
           <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <Property Name="DeletedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="PERMISSION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUCT">
           <Key>
@@ -104,18 +129,29 @@
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <Property Name="DeletedDate" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityContainer Name="StockTrackingEntities" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PermissionType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="StockTrackingEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
           <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="PERMISSIONs" EntityType="Self.PERMISSION" />
           <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
           <EntitySet Name="SALES" EntityType="Self.SALE" />
+          <EntitySet Name="USERs" EntityType="Self.USER" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="StockTrackingModelStoreContainer" CdmEntityContainer="StockTrackingEntities">
+        <EntityContainerMapping StorageEntityContainer="StockTrackingModelStoreContainer" CdmEntityContainer="StockTrackingEntities3">
           <EntitySetMapping Name="CATEGORies">
             <EntityTypeMapping TypeName="StockTrackingModel.CATEGORY">
               <MappingFragment StoreEntitySet="CATEGORY">
@@ -133,6 +169,14 @@
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERMISSIONs">
+            <EntityTypeMapping TypeName="StockTrackingModel.PERMISSION">
+              <MappingFragment StoreEntitySet="PERMISSION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -161,6 +205,16 @@
                 <ScalarProperty Name="SalesDate" ColumnName="SalesDate" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERs">
+            <EntityTypeMapping TypeName="StockTrackingModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PermissionType" ColumnName="PermissionType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

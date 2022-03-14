@@ -120,5 +120,10 @@ namespace StockTracking
                 message += "El campo 'Precio' está vacío" + Environment.NewLine;
             return message;
         }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

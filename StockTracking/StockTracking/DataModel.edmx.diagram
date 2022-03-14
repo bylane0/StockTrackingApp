@@ -4,11 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0b5eaa85ea1a4619aba34d7407966534" Name="Diagram1">
+      <Diagram DiagramId="6e6317d834224c90b823731ef005b889" Name="Diagram1">
         <EntityTypeShape EntityType="StockTrackingModel.CATEGORY" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="StockTrackingModel.CUSTOMER" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="StockTrackingModel.PRODUCT" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="StockTrackingModel.SALE" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockTrackingModel.PERMISSION" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockTrackingModel.PRODUCT" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockTrackingModel.SALE" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockTrackingModel.USER" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

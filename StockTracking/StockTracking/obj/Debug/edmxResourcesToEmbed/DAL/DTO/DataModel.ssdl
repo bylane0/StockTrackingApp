@@ -18,13 +18,11 @@
     <Property Name="isDeleted" Type="bit" Nullable="false" />
     <Property Name="DeletedDate" Type="date" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'StockTracking.dbo.PERMISSION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="PERMISSION">
     <Key>
-      <PropertyRef Name="PermissionName" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PermissionName" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="PRODUCT">
@@ -65,14 +63,9 @@ advertencia 6002: La tabla o vista 'StockTracking.dbo.PERMISSION' no tiene defin
   <EntityContainer Name="StockTrackingModelStoreContainer">
     <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PERMISSION" EntityType="Self.PERMISSION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SALES" EntityType="Self.SALES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PERMISSION" EntityType="Self.PERMISSION" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [PERMISSION].[ID] AS [ID], 
-    [PERMISSION].[PermissionName] AS [PermissionName]
-    FROM [dbo].[PERMISSION] AS [PERMISSION]</DefiningQuery>
-    </EntitySet>
   </EntityContainer>
 </Schema>

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.btnAddStock = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnDeleted = new System.Windows.Forms.Button();
@@ -41,14 +42,27 @@
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Image = global::StockTracking.Properties.Resources.Exit;
-            this.btnExit.Location = new System.Drawing.Point(149, 256);
+            this.btnExit.Location = new System.Drawing.Point(218, 256);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(131, 116);
-            this.btnExit.TabIndex = 6;
+            this.btnExit.TabIndex = 10;
             this.btnExit.Text = "Salida";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.Image = global::StockTracking.Properties.Resources.Employee;
+            this.btnAddUser.Location = new System.Drawing.Point(81, 256);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(131, 116);
+            this.btnAddUser.TabIndex = 9;
+            this.btnAddUser.Text = "Usuarios";
+            this.btnAddUser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // btnAddStock
             // 
@@ -92,7 +106,7 @@
             // btnCustomers
             // 
             this.btnCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomers.Image = global::StockTracking.Properties.Resources.Employee;
+            this.btnCustomers.Image = global::StockTracking.Properties.Resources.Department;
             this.btnCustomers.Location = new System.Drawing.Point(12, 12);
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(131, 116);
@@ -134,6 +148,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 382);
             this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.btnAddStock);
             this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.btnDeleted);
@@ -144,6 +159,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Tracking - menú";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }
@@ -157,5 +173,6 @@
         private System.Windows.Forms.Button btnCategory;
         private System.Windows.Forms.Button btnDeleted;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnAddUser;
     }
 }

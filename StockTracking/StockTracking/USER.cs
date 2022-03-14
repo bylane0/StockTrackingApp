@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StockTracking.DAL
+namespace StockTracking
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CATEGORY
+    public partial class USER
     {
         public int ID { get; set; }
-        public string CategoryName { get; set; }
-        public bool isDeleted { get; set; }
-        public Nullable<System.DateTime> DeletedDate { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public int PermissionType { get; set; }
     }
 }

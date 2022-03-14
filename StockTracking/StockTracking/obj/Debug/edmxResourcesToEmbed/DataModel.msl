@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="StockTrackingModelStoreContainer" CdmEntityContainer="StockTrackingEntities1">
+  <EntityContainerMapping StorageEntityContainer="StockTrackingModelStoreContainer" CdmEntityContainer="StockTrackingEntities3">
     <EntitySetMapping Name="CATEGORies">
       <EntityTypeMapping TypeName="StockTrackingModel.CATEGORY">
         <MappingFragment StoreEntitySet="CATEGORY">
@@ -18,6 +18,14 @@
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERMISSIONs">
+      <EntityTypeMapping TypeName="StockTrackingModel.PERMISSION">
+        <MappingFragment StoreEntitySet="PERMISSION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -56,14 +64,6 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="PermissionType" ColumnName="PermissionType" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PERMISSIONs">
-      <EntityTypeMapping TypeName="StockTrackingModel.PERMISSION">
-        <MappingFragment StoreEntitySet="PERMISSION">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
