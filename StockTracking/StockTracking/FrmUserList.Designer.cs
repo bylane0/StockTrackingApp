@@ -37,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -121,7 +120,6 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnClose);
-            this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.btnUpdate);
             this.panel2.Controls.Add(this.btnNew);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -133,7 +131,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(557, 18);
+            this.btnClose.Location = new System.Drawing.Point(457, 18);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(123, 65);
             this.btnClose.TabIndex = 11;
@@ -141,20 +139,10 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(413, 18);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(123, 65);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "Borrar";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(267, 18);
+            this.btnUpdate.Location = new System.Drawing.Point(328, 18);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(123, 65);
             this.btnUpdate.TabIndex = 9;
@@ -165,7 +153,7 @@
             // btnNew
             // 
             this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.Location = new System.Drawing.Point(121, 18);
+            this.btnNew.Location = new System.Drawing.Point(199, 18);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(123, 65);
             this.btnNew.TabIndex = 8;
@@ -208,7 +196,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DataGridView dataGridView1;

@@ -45,7 +45,7 @@ namespace StockTracking.DAL.DAO
             {
                 List<UserDetailDTO> users = new List<UserDetailDTO>();
                 var list = (from u in db.USERs.Where(x => x.Name == detail.UserName && x.Password == detail.UserPassword)
-                            join p in db.PERMISSIONs on u.PermissionType equals p.ID     
+                            join p in db.PERMISSIONs on u.PermissionType equals p.ID
                             select new
                             {
                                 userID = u.ID,
@@ -53,7 +53,7 @@ namespace StockTracking.DAL.DAO
                                 userPassword = u.Password,
                                 permissionID = u.PermissionType,
                                 permissionName = p.PermissionName
-                                
+
                             }).ToList();
 
                 foreach (var item in list)
@@ -113,14 +113,25 @@ namespace StockTracking.DAL.DAO
             }
         }
 
-        public bool Update(SALE entity)
-        {
-            throw new NotImplementedException();
-        }
 
         public bool Update(USER entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                USER user = db.USERs.First(x => x.ID == entity.ID);
+                user.Name = entity.Name;
+                user.Password = entity.Password;
+                user.PermissionType = entity.PermissionType;
+   
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }

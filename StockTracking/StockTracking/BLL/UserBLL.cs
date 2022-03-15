@@ -51,7 +51,12 @@ namespace StockTracking.BLL
 
         public bool Update(UserDetailDTO entity)
         {
-            throw new NotImplementedException();
+            USER user = new USER();
+            user.ID = entity.UserID;
+            user.Name = entity.UserName;
+            user.Password = entity.UserPassword;
+            user.PermissionType = entity.PermissionType;
+            return dao.Update(user);
         }
 
  

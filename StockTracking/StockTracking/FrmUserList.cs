@@ -24,6 +24,7 @@ namespace StockTracking
         private void FrmUserList_Load(object sender, EventArgs e)
         {
             FillAllData();
+            
         }
 
         private void FillAllData()
@@ -75,7 +76,7 @@ namespace StockTracking
             this.Visible = true;
             dto = bll.Select();
             CleanFilters();
-
+            FillAllData();
         }
         UserDetailDTO detailuser = new UserDetailDTO(); 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -94,6 +95,7 @@ namespace StockTracking
                 this.Visible = true;
                 bll = new UserBLL();
                 CleanFilters();
+                FillAllData();
 
 
             }

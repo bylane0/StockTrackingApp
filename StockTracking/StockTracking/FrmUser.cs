@@ -31,16 +31,41 @@ namespace StockTracking
                 MessageBox.Show(message);
             else
             {
-                UserDetailDTO user = new UserDetailDTO();
-                user.UserName = txtUser.Text;
-                user.UserPassword = txtPassword.Text;
-                user.PermissionType = Convert.ToInt32(cmbPermission.SelectedValue);
-
-                if (bll.Insert(user))
+                if (!isUpdate)
                 {
-                    MessageBox.Show("El usuario se añadió correctamente!");
-                    CleanFilters();
+                    UserDetailDTO user = new UserDetailDTO();
+                    user.UserName = txtUser.Text;
+                    user.UserPassword = txtPassword.Text;
+                    user.PermissionType = Convert.ToInt32(cmbPermission.SelectedValue);
+
+                    if (bll.Insert(user))
+                    {
+                        MessageBox.Show("El usuario se añadió correctamente!");
+                        CleanFilters();
+                    }
                 }
+                else
+                {
+                    if (detail.UserName == txtUser.Text &&
+                     detail.PermissionType == Convert.ToInt32(cmbPermission.SelectedValue) &&
+                     detail.UserPassword == txtPassword.Text)
+                    {
+                        MessageBox.Show("No existe ningún cambio!");
+                    }
+                    else
+                    {
+                        detail.UserName = txtUser.Text;
+                        detail.PermissionType = Convert.ToInt32(cmbPermission.SelectedValue);
+                        detail.UserPassword = txtPassword.Text;
+                        if (bll.Update(detail))
+                        {
+                            MessageBox.Show("El usuario se actualizó correctamente!");
+                            this.Close();
+
+                        }
+                    }
+                }
+               
             }
         }
 
