@@ -81,7 +81,6 @@
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(194, 68);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(172, 26);
             this.txtPassword.TabIndex = 20;
             // 
@@ -132,7 +131,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Agregar usuario";
+            this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.FrmUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

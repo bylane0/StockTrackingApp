@@ -68,8 +68,10 @@ namespace StockTracking
 
         UserBLL bll = new UserBLL();
         public UserDTO dto = new UserDTO();
-        UserDetailDTO detail = new UserDetailDTO();
+        public UserDetailDTO detail = new UserDetailDTO();
         public bool comboFull = false;
+        public bool isUpdate = false;
+
         private void cmbPermission_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -81,7 +83,14 @@ namespace StockTracking
             cmbPermission.DisplayMember = "PermissionName";
             cmbPermission.ValueMember = "ID";
             cmbPermission.SelectedIndex = -1;
-            
+            if (isUpdate)
+            {
+                txtUser.Text = detail.UserName;
+                txtPassword.Text = detail.UserPassword;
+                cmbPermission.SelectedValue = detail.PermissionType;
+
+            }
+
         }
     }
 }

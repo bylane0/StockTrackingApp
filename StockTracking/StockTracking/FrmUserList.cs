@@ -20,6 +20,7 @@ namespace StockTracking
         }
         UserBLL bll = new UserBLL();
         UserDTO dto = new UserDTO();
+       
         private void FrmUserList_Load(object sender, EventArgs e)
         {
             FillAllData();
@@ -75,6 +76,37 @@ namespace StockTracking
             dto = bll.Select();
             CleanFilters();
 
+        }
+        UserDetailDTO detailuser = new UserDetailDTO(); 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (detailuser.UserID == 0)
+                MessageBox.Show("Seleccione un usuario de la tabla!");
+            else
+            {
+                FrmUser frm = new FrmUser();
+                frm.detail = detailuser;
+                frm.isUpdate = true;
+                dto = bll.Select();
+                frm.dto = dto;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                bll = new UserBLL();
+                CleanFilters();
+
+
+            }
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detailuser = new UserDetailDTO();
+            detailuser.UserID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            detailuser.UserName = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            detailuser.UserPassword = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            detailuser.PermissionType = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+       
         }
     }
 }
