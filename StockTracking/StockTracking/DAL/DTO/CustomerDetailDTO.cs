@@ -12,3 +12,4 @@ namespace StockTracking.DAL.DTO
         public string CustomerName { get; set; }
     }
 }
+

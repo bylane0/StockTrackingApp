@@ -13,5 +13,7 @@ namespace StockTracking.DAL.DTO
         public string UserPassword { get; set; }
         public int PermissionType { get; set; }
         public string PermissionName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using StockTracking.DAL.DTO;
+﻿
+using StockTracking.DAL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace StockTracking.DAL.DAO
 {
     public class UserDAO : StockContext, IDAO<USER, UserDetailDTO>
     {
+    
+
         public bool Delete(SALE entity)
         {
             throw new NotImplementedException();
@@ -52,19 +55,24 @@ namespace StockTracking.DAL.DAO
                                 userName = u.Name,
                                 userPassword = u.Password,
                                 permissionID = u.PermissionType,
-                                permissionName = p.PermissionName
+                                permissionName = p.PermissionName,
+                                email = u.Email,
+                                phone = u.PhoneNumber
 
                             }).ToList();
 
                 foreach (var item in list)
                 {
-                    UserDetailDTO dto = new UserDetailDTO();
-                    dto.UserID = item.userID;
-                    dto.UserName = item.userName;
-                    dto.UserPassword = item.userPassword;
-                    dto.PermissionType = item.permissionID;
-                    dto.PermissionName = item.permissionName;
-
+                    UserDetailDTO dto = new UserDetailDTO
+                    {
+                        UserID = item.userID,
+                        UserName = item.userName,
+                        UserPassword = item.userPassword,
+                        PermissionType = item.permissionID,
+                        PermissionName = item.permissionName,
+                        Email = item.email,
+                        PhoneNumber = item.phone
+                    };
                     users.Add(dto);
                 }
                 return users;
@@ -89,18 +97,24 @@ namespace StockTracking.DAL.DAO
                                 userName = u.Name,
                                 userPassword = u.Password,
                                 permissionID = u.PermissionType,
-                                permissionName = p.PermissionName
+                                permissionName = p.PermissionName,
+                                email = u.Email,
+                                phone = u.PhoneNumber
 
                             }).ToList();
 
                 foreach (var item in list)
                 {
-                    UserDetailDTO dto = new UserDetailDTO();
-                    dto.UserID = item.userID;
-                    dto.UserName = item.userName;
-                    dto.UserPassword = item.userPassword;
-                    dto.PermissionType = item.permissionID;
-                    dto.PermissionName = item.permissionName;
+                    UserDetailDTO dto = new UserDetailDTO
+                    {
+                        UserID = item.userID,
+                        UserName = item.userName,
+                        UserPassword = item.userPassword,
+                        PermissionType = item.permissionID,
+                        PermissionName = item.permissionName,
+                        Email = item.email,
+                        PhoneNumber = item.phone
+                    };
 
                     users.Add(dto);
                 }
@@ -122,7 +136,7 @@ namespace StockTracking.DAL.DAO
                 user.Name = entity.Name;
                 user.Password = entity.Password;
                 user.PermissionType = entity.PermissionType;
-   
+
                 db.SaveChanges();
                 return true;
             }
@@ -131,7 +145,7 @@ namespace StockTracking.DAL.DAO
 
                 throw ex;
             }
-            
+
         }
     }
 }

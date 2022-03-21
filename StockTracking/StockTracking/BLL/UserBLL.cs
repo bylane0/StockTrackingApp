@@ -30,6 +30,8 @@ namespace StockTracking.BLL
             user.Name = entity.UserName;
             user.Password = entity.UserPassword;
             user.PermissionType = entity.PermissionType;
+            user.Email = entity.Email;
+            user.PhoneNumber = entity.PhoneNumber;
             return dao.Insert(user);
         }
 

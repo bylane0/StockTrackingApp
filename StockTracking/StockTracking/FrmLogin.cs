@@ -38,7 +38,8 @@ namespace StockTracking
 
                 UserDetailDTO detail = new UserDetailDTO();
                 detail.UserName = txtUser.Text;
-                detail.UserPassword = txtPassword.Text;
+                string passwordHash = General.cifrar(txtPassword.Text);
+                detail.UserPassword = passwordHash;
 
                 dto = bll.Select(detail);
 
