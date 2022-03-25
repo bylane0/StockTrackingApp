@@ -67,6 +67,14 @@
           <Property Name="Email" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Function Name="GenerateProductsReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GenerateRandomData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="customerName" Type="varchar" Mode="In" />
+          <Parameter Name="categoryName" Type="varchar" Mode="In" />
+          <Parameter Name="productName" Type="varchar" Mode="In" />
+          <Parameter Name="stockAmount" Type="int" Mode="In" />
+          <Parameter Name="price" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="StockTrackingModelStoreContainer">
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
@@ -142,20 +150,34 @@
           <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="StockTrackingEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="StockTrackingEntities6" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
           <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
           <EntitySet Name="PERMISSIONs" EntityType="Self.PERMISSION" />
           <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
           <EntitySet Name="SALES" EntityType="Self.SALE" />
           <EntitySet Name="USERs" EntityType="Self.USER" />
+          <FunctionImport Name="GenerateProductsReport" ReturnType="Collection(StockTrackingModel.GenerateProductsReport_Result)" />
+          <FunctionImport Name="GenerateRandomData">
+            <Parameter Name="customerName" Mode="In" Type="String" />
+            <Parameter Name="categoryName" Mode="In" Type="String" />
+            <Parameter Name="productName" Mode="In" Type="String" />
+            <Parameter Name="stockAmount" Mode="In" Type="Int32" />
+            <Parameter Name="price" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="GenerateProductsReport_Result">
+          <Property Type="String" Name="Producto" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Categoria" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Stock" Nullable="false" />
+          <Property Type="Int32" Name="Precio" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="StockTrackingModelStoreContainer" CdmEntityContainer="StockTrackingEntities4">
+        <EntityContainerMapping StorageEntityContainer="StockTrackingModelStoreContainer" CdmEntityContainer="StockTrackingEntities6">
           <EntitySetMapping Name="CATEGORies">
             <EntityTypeMapping TypeName="StockTrackingModel.CATEGORY">
               <MappingFragment StoreEntitySet="CATEGORY">
@@ -224,6 +246,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GenerateProductsReport" FunctionName="StockTrackingModel.Store.GenerateProductsReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StockTrackingModel.GenerateProductsReport_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GenerateRandomData" FunctionName="StockTrackingModel.Store.GenerateRandomData" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

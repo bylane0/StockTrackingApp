@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StockTracking
+namespace StockTracking.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CUSTOMER
+    public partial class CATEGORY
     {
         public int ID { get; set; }
-        public string CustomerName { get; set; }
+        public string CategoryName { get; set; }
         public bool isDeleted { get; set; }
         public Nullable<System.DateTime> DeletedDate { get; set; }
     }

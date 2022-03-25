@@ -61,5 +61,12 @@ namespace StockTracking.BLL
             product.CategoryID = entity.CategoryID;
             return dao.Update(product);
         }
+
+        internal ProductDTO Select(int v)
+        {
+            ProductDTO dto = new ProductDTO();
+            dto.Products = dao.Select(v);
+            return dto;
+        }
     }
 }

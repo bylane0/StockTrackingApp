@@ -62,7 +62,6 @@
     <Property Name="Email" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Function Name="GenerateProductsReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GenerateRandomData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="customerName" Type="varchar" Mode="In" />
     <Parameter Name="categoryName" Type="varchar" Mode="In" />

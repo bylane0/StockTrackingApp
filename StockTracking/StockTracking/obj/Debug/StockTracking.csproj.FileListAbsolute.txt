@@ -85,3 +85,4 @@ C:\Users\Juan Aubone\Desktop\test\StockTrackingApp\StockTracking\StockTracking\o
 C:\Users\Juan Aubone\Desktop\test\StockTrackingApp\StockTracking\StockTracking\obj\Debug\StockTracking.csproj.CopyComplete
 C:\Users\Juan Aubone\Desktop\test\StockTrackingApp\StockTracking\StockTracking\obj\Debug\StockTracking.exe
 C:\Users\Juan Aubone\Desktop\test\StockTrackingApp\StockTracking\StockTracking\obj\Debug\StockTracking.pdb
+C:\Users\Juan Aubone\Desktop\test\StockTrackingApp\StockTracking\StockTracking\obj\Debug\StockTracking.FrmAutocomplete.resources

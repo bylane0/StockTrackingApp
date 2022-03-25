@@ -41,7 +41,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -55,19 +57,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\AutocompleteBLL.cs" />
     <Compile Include="BLL\CategoryBLL.cs" />
     <Compile Include="BLL\CustomerBLL.cs" />
     <Compile Include="BLL\IBLL.cs" />
     <Compile Include="BLL\ProductBLL.cs" />
     <Compile Include="BLL\SalesBLL.cs" />
     <Compile Include="BLL\UserBLL.cs" />
-    <Compile Include="CATEGORY.cs">
+    <Compile Include="DAL\CATEGORY.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CUSTOMER.cs">
+    <Compile Include="DAL\CUSTOMER.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAO\CategoryDAO.cs" />
+    <Compile Include="DAL\DAO\AutocompleteDAO.cs" />
     <Compile Include="DAL\DAO\CustomerDAO.cs" />
     <Compile Include="DAL\DAO\IDAO.cs" />
     <Compile Include="DAL\DAO\PermissionDAO.cs" />
@@ -75,8 +79,25 @@
     <Compile Include="DAL\DAO\SalesDAO.cs" />
     <Compile Include="DAL\DAO\StockContext.cs" />
     <Compile Include="DAL\DAO\UserDAO.cs" />
+    <Compile Include="DAL\DataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DTO\AutocompleteDetailDTO.cs" />
     <Compile Include="DAL\DTO\CategoryDetailDTO.cs" />
     <Compile Include="DAL\DTO\CategoryDTO.cs" />
+    <Compile Include="DAL\DTO\AutocompleteDTO.cs" />
     <Compile Include="DAL\DTO\CustomerDetailDTO.cs" />
     <Compile Include="DAL\DTO\CustomerDTO.cs" />
     <Compile Include="DAL\DTO\PermissionDTO.cs" />
@@ -86,26 +107,32 @@
     <Compile Include="DAL\DTO\SalesDTO.cs" />
     <Compile Include="DAL\DTO\UserDetailDTO.cs" />
     <Compile Include="DAL\DTO\UserDTO.cs" />
-    <Compile Include="DataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+    <Compile Include="DAL\GenerateProductsReport_Result.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.edmx</DependentUpon>
+    <Compile Include="DAL\PERMISSION.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PRODUCT.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SALE.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\USER.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FrmAddStock.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAddStock.Designer.cs">
       <DependentUpon>FrmAddStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAutocomplete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutocomplete.Designer.cs">
+      <DependentUpon>FrmAutocomplete.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCategory.cs">
       <SubType>Form</SubType>
@@ -192,23 +219,14 @@
       <DependentUpon>FrmUserList.cs</DependentUpon>
     </Compile>
     <Compile Include="General.cs" />
-    <Compile Include="PERMISSION.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PRODUCT.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SALE.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="USER.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="UserStatic.cs" />
     <EmbeddedResource Include="FrmAddStock.resx">
       <DependentUpon>FrmAddStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutocomplete.resx">
+      <DependentUpon>FrmAutocomplete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategory.resx">
       <DependentUpon>FrmCategory.cs</DependentUpon>
@@ -262,11 +280,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="DataModel.edmx">
+    <EntityDeploy Include="DAL\DataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataModel.edmx.diagram">
+    <None Include="DAL\DataModel.edmx.diagram">
       <DependentUpon>DataModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -286,6 +304,7 @@
   <ItemGroup>
     <None Include="Resources\deleted.png" />
     <None Include="Resources\addStock.png" />
+    <None Include="Resources\demo.csv" />
     <None Include="Resources\product.png" />
     <None Include="Resources\Task.png" />
     <None Include="Resources\Salary.png" />
@@ -300,12 +319,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataModel.Context.tt">
+    <Content Include="DAL\DataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DataModel.tt">
+    <Content Include="DAL\DataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>

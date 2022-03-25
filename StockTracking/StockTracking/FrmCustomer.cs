@@ -39,6 +39,7 @@ namespace StockTracking
                     {
                         MessageBox.Show("El cliente se añadió correctamente!");
                         txtCustomerName.Clear();
+
                     }
                 }
                 else

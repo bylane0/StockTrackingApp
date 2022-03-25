@@ -53,6 +53,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnGenerateReport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -272,6 +273,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnGenerateReport);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.btnDelete);
@@ -337,6 +339,19 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
+            // btnGenerateReport
+            // 
+            this.btnGenerateReport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGenerateReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnGenerateReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateReport.Location = new System.Drawing.Point(12, 6);
+            this.btnGenerateReport.Name = "btnGenerateReport";
+            this.btnGenerateReport.Size = new System.Drawing.Size(137, 56);
+            this.btnGenerateReport.TabIndex = 11;
+            this.btnGenerateReport.Text = "Generar reporte";
+            this.btnGenerateReport.UseVisualStyleBackColor = false;
+            this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
+            // 
             // FrmProductList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,5 +403,6 @@
         private System.Windows.Forms.RadioButton rbPriceLess;
         private System.Windows.Forms.Button btnClean;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnGenerateReport;
     }
 }

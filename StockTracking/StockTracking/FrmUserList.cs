@@ -119,5 +119,15 @@ namespace StockTracking
 
 
         }
+
+        private void btnAutocompleteData_Click(object sender, EventArgs e)
+        {
+            FrmAutocomplete frm = new FrmAutocomplete();
+            this.Hide();
+            frm.ShowDialog();
+            this.Visible = true;
+            CleanFilters();
+            FillAllData();
+        }
     }
 }

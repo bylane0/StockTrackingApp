@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StockTracking
+namespace StockTracking.DAL
 {
     using System;
     using System.Collections.Generic;

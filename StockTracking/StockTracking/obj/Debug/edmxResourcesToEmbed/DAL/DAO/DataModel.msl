@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="StockTrackingModelStoreContainer" CdmEntityContainer="StockTrackingEntities6">
+  <EntityContainerMapping StorageEntityContainer="StockTrackingModelStoreContainer" CdmEntityContainer="StockTrackingEntities5">
     <EntitySetMapping Name="CATEGORies">
       <EntityTypeMapping TypeName="StockTrackingModel.CATEGORY">
         <MappingFragment StoreEntitySet="CATEGORY">
@@ -69,16 +69,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="GenerateProductsReport" FunctionName="StockTrackingModel.Store.GenerateProductsReport">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="StockTrackingModel.GenerateProductsReport_Result">
-          <ScalarProperty Name="Producto" ColumnName="Producto" />
-          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
-          <ScalarProperty Name="Stock" ColumnName="Stock" />
-          <ScalarProperty Name="Precio" ColumnName="Precio" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GenerateRandomData" FunctionName="StockTrackingModel.Store.GenerateRandomData" />
   </EntityContainerMapping>
 </Mapping>

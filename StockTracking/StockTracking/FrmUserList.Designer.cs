@@ -36,6 +36,7 @@
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAutocompleteData = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -119,6 +120,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnAutocompleteData);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnUpdate);
             this.panel2.Controls.Add(this.btnNew);
@@ -127,6 +129,22 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 100);
             this.panel2.TabIndex = 1;
+            // 
+            // btnAutocompleteData
+            // 
+            this.btnAutocompleteData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAutocompleteData.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAutocompleteData.BackColor = System.Drawing.SystemColors.Info;
+            this.btnAutocompleteData.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAutocompleteData.Location = new System.Drawing.Point(12, 18);
+            this.btnAutocompleteData.Name = "btnAutocompleteData";
+            this.btnAutocompleteData.Size = new System.Drawing.Size(181, 65);
+            this.btnAutocompleteData.TabIndex = 12;
+            this.btnAutocompleteData.Text = "Autocompletar Info.";
+            this.btnAutocompleteData.UseVisualStyleBackColor = false;
+            this.btnAutocompleteData.Click += new System.EventHandler(this.btnAutocompleteData_Click);
             // 
             // btnClose
             // 
@@ -181,6 +199,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmUserList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de usuarios";
             this.Load += new System.EventHandler(this.FrmUserList_Load);
             this.panel1.ResumeLayout(false);
@@ -205,5 +224,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAutocompleteData;
     }
 }

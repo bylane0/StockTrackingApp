@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StockTracking.DAL.DAO
+namespace StockTracking.DAL.DTO
 {
-    public class StockContext
+    public class AutocompleteDTO
     {
-        public StockTrackingEntities6 db = new StockTrackingEntities6();
+        public List<AutocompleteDetailDTO> Autocompletes { get; set; }
     }
 }

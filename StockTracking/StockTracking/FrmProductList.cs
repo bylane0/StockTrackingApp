@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +39,7 @@ namespace StockTracking
         {
             e.Handled = General.isNumber(e);
         }
-        
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FrmProduct frm = new FrmProduct();
@@ -71,11 +73,11 @@ namespace StockTracking
         private void btnSearch_Click(object sender, EventArgs e)
         {
             List<ProductDetailDTO> list = dto.Products;
-            if(!string.IsNullOrEmpty(txtProductName.Text))
+            if (!string.IsNullOrEmpty(txtProductName.Text))
                 list = list.Where(x => x.ProductName.Contains(txtProductName.Text)).ToList();
             if (cmbCategory.SelectedIndex != -1)
                 list = list.Where(x => x.CategoryID == Convert.ToInt32(cmbCategory.SelectedValue)).ToList();
-            if(!string.IsNullOrEmpty(txtPrice.Text))
+            if (!string.IsNullOrEmpty(txtPrice.Text))
             {
                 if (rbPriceEqual.Checked)
                     list = list.Where(x => x.Price == Convert.ToInt32(txtPrice.Text)).ToList();
@@ -152,7 +154,7 @@ namespace StockTracking
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(detail.ProductID == 0)
+            if (detail.ProductID == 0)
                 MessageBox.Show("Seleccione un producto de la tabla!");
             else
             {
@@ -170,6 +172,44 @@ namespace StockTracking
                     }
                 }
             }
+        }
+
+        private void btnGenerateReport_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro/a?", "Advertencia", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                string filepath = ConfigurationManager.AppSettings["FilePathExportCSV"];
+                string filename = "export.csv";
+                string filefullpath = filepath + "/" + filename;
+                string delimiter = ";";
+                bll = new ProductBLL();
+                dto = bll.Select(1);
+                
+                try
+                {
+                    FileStream fs = new FileStream(@filefullpath, FileMode.OpenOrCreate, FileAccess.Write);   // 1er parametro: Path *** 2do parametro: Controlar si el fichero existe o no *** 3er parametro: Acceso 
+                    StreamWriter sw = new StreamWriter(fs);
+                    //primera linea
+                    sw.WriteLine("PRODUCTO"+ delimiter+ "CATEGORIA"+ delimiter + "STOCK" + delimiter + "PRECIO");
+                    foreach (var item in dto.Products)
+                    {
+                        sw.WriteLine(item.ProductName + delimiter + item.CategoryName + delimiter + item.StockAmount + delimiter + item.Price);
+
+                    }
+                    MessageBox.Show("Se escribió satisfactoriamente");
+                    sw.Flush();
+                    sw.Close();
+                    fs.Close();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            
+         
         }
     }
 }

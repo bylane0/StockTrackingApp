@@ -10,11 +10,14 @@ using System.Windows.Forms;
 using StockTracking.DAL.DTO;
 using StockTracking.BLL;
 using StockTracking.DAL.DAO;
+using System.IO;
+using System.Configuration;
+
 namespace StockTracking
 {
     public partial class FrmCustomerList : Form
     {
-        
+
         public FrmCustomerList()
         {
             InitializeComponent();
@@ -31,6 +34,9 @@ namespace StockTracking
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+
+            dto = bll.Select();
+            dataGridView1.DataSource = dto.Customers;
         }
         CustomerDTO dto = new CustomerDTO();
         CustomerBLL bll = new CustomerBLL();
@@ -66,7 +72,7 @@ namespace StockTracking
                 dto = bll.Select();
                 dataGridView1.DataSource = dto.Customers;
 
-          
+
             }
         }
 
@@ -97,6 +103,54 @@ namespace StockTracking
                     }
                 }
             }
+        }
+
+        private void btnCsv_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("¿Estás seguro/a?", "Advertencia", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                string filepath = ConfigurationManager.AppSettings["FilePathImportCSV"];
+                string filename = "demo.csv";
+                string filefullpath = filepath + "/" + filename;
+                int contador = 1;
+                try
+                {
+                    string[] lineas = File.ReadAllLines(filefullpath);
+                    foreach (var linea in lineas)
+                    {
+                        var valores = linea.Split(',');
+
+                        if (string.IsNullOrEmpty(valores[0]))
+                            MessageBox.Show("El campo 'Nombre del cliente' está vacío!");
+                        else
+                        {
+                            CustomerDetailDTO customer = new CustomerDetailDTO();
+                            customer.CustomerName = valores[0];
+                            if (bll.Insert(customer))
+                            {
+                                MessageBox.Show("El cliente " + contador + " se añadió correctamente!");
+                                contador++;
+
+                                dto = bll.Select();
+                                dataGridView1.DataSource = dto.Customers;
+                            }
+                        }
+
+                        //MessageBox.Show("El nombre es: " + valores[0] +
+                        //    "\n con un valor de: " + valores[1]);
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El archivo no existe o la ruta indicada es incorrecta");
+                    MessageBox.Show(filefullpath);
+                }
+
+            }
+
         }
     }
 }

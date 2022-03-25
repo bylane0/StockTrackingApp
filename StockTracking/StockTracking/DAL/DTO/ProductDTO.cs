@@ -10,6 +10,7 @@ namespace StockTracking.DAL.DTO
     {
         public List<ProductDetailDTO> Products { get; set; }
         public List<CategoryDetailDTO> Categories { get; set; }
+      
         
     }
 }

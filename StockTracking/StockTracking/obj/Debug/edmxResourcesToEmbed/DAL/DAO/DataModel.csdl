@@ -62,14 +62,13 @@
     <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="StockTrackingEntities6" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="StockTrackingEntities5" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
     <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
     <EntitySet Name="PERMISSIONs" EntityType="Self.PERMISSION" />
     <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
     <EntitySet Name="SALES" EntityType="Self.SALE" />
     <EntitySet Name="USERs" EntityType="Self.USER" />
-    <FunctionImport Name="GenerateProductsReport" ReturnType="Collection(StockTrackingModel.GenerateProductsReport_Result)" />
     <FunctionImport Name="GenerateRandomData">
       <Parameter Name="customerName" Mode="In" Type="String" />
       <Parameter Name="categoryName" Mode="In" Type="String" />
@@ -78,10 +77,4 @@
       <Parameter Name="price" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
-  <ComplexType Name="GenerateProductsReport_Result">
-    <Property Type="String" Name="Producto" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="Categoria" Nullable="false" MaxLength="50" />
-    <Property Type="Int32" Name="Stock" Nullable="false" />
-    <Property Type="Int32" Name="Precio" Nullable="false" />
-  </ComplexType>
 </Schema>

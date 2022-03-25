@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StockTracking
+namespace StockTracking.DAL
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CATEGORY
+    public partial class GenerateProductsReport_Result
     {
-        public int ID { get; set; }
-        public string CategoryName { get; set; }
-        public bool isDeleted { get; set; }
-        public Nullable<System.DateTime> DeletedDate { get; set; }
+
+        public string Producto { get; set; }
+        public string Categoria { get; set; }
+        public int Stock { get; set; }
+        public int Precio { get; set; }
     }
 }

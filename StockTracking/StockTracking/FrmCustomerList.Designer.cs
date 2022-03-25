@@ -37,6 +37,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnCsv = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -49,7 +50,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(514, 59);
+            this.panel1.Size = new System.Drawing.Size(668, 59);
             this.panel1.TabIndex = 0;
             // 
             // txtCustomerName
@@ -73,6 +74,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnCsv);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.btnDelete);
@@ -80,7 +82,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 336);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(514, 75);
+            this.panel2.Size = new System.Drawing.Size(668, 75);
             this.panel2.TabIndex = 1;
             // 
             // btnClose
@@ -135,15 +137,27 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 59);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(514, 277);
+            this.dataGridView1.Size = new System.Drawing.Size(668, 277);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
+            // 
+            // btnCsv
+            // 
+            this.btnCsv.BackColor = System.Drawing.SystemColors.Info;
+            this.btnCsv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCsv.Location = new System.Drawing.Point(504, 19);
+            this.btnCsv.Name = "btnCsv";
+            this.btnCsv.Size = new System.Drawing.Size(152, 44);
+            this.btnCsv.TabIndex = 13;
+            this.btnCsv.Text = "Alta masiva CSV";
+            this.btnCsv.UseVisualStyleBackColor = false;
+            this.btnCsv.Click += new System.EventHandler(this.btnCsv_Click);
             // 
             // FrmCustomerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 411);
+            this.ClientSize = new System.Drawing.Size(668, 411);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -170,5 +184,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnCsv;
     }
 }
